@@ -16,7 +16,7 @@ int ENA = 2;
 unsigned int tiempo, distancia;
 
 
-Ultrasonic sensor(9,10,30000); // (Trig PIN,Echo PIN, microsegundos max "distancia máxima") 30000us = 5 metros
+Ultrasonic sensor(9,10,300000); // (Trig PIN,Echo PIN, microsegundos max "distancia máxima") 30000us = 5 metros
 
 
 void setup() {
@@ -43,7 +43,7 @@ void loop() {
   int cm = sensor.Ranging(CM);
   Serial.print("Distancia: ");
   Serial.println(cm);
-  delay(1000);
+  delay(250); // Delay en milisegundos
   int Limite = 30 ;                  // Medida en vacío del sensor
 
   }

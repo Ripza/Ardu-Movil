@@ -6,3 +6,5 @@ Se utiliza la librería Ultrasonic. Se toma de la siguiente url: https://leantec
 A su vez se utiliza la librería Leantec para los motores.
 
 Para poder instalar librería seguir los pasos de aquí: https://www.arduino.cc/en/Guide/Libraries
+
+New Ping : https://bitbucket.org/teckel12/arduino-new-ping/wiki/Home#!download-install

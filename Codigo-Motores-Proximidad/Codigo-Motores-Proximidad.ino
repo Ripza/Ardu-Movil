@@ -1,5 +1,6 @@
 #include <LEANTEC_ControlMotor.h>//Incluimos la librería control de motores 
-#include <Ultrasonic.h> 
+
+#include <NewPing.h>
 
 
 int PinIN1 = 4; //MOTOR Izquierdo HIGH 
@@ -17,8 +18,7 @@ const int pintrigger = 9;
 // Configuramos los pines que vamos a usar
 ControlMotor control(PinIN2,PinIN1,PinIN3,PinIN4,ENA,ENB); // MotorDer1,MotorDer2,MotorIzq1,MotorIzq2,PWM_Derecho,PWM_Izquierdo
 
-Ultrasonic sensor(9,10,30000); // (Trig PIN,Echo PIN, microsegundos max "distancia máxima") 30000us = 5 metros
-
+NewPing sonar(pintrigger, pinecho, 200); // NewPing setup of pins and maximum distance.
 
 int velocidad = 50;//Declaramos una variable para guardar la velocidad. 150 es la velocidad en la que empezará.
 
@@ -60,7 +60,7 @@ velocidad=150;//Reseteamos la velocidad
  }
  void chequear(){
   long distanceCm;
-  distanceCm = sensor.Ranging(CM);
+  distanceCm = sonar.ping_cm();
   bool isStop = true;
   
   while(isStop){
@@ -69,7 +69,7 @@ velocidad=150;//Reseteamos la velocidad
     } else {
       isStop = false;
     }
-    distanceCm = sensor.Ranging(CM);
+    distanceCm = sonar.ping_cm();
   }
  }
 
